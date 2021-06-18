@@ -1063,7 +1063,7 @@ int main(int argc, char **argv){
         /*
          * Get some file with results
          */
-        somefile = fopen("./result_red_hess.txt", "w");
+        somefile = fopen("./kaug_debug/result_red_hess.txt", "w");
         /* fprintf(somefile, "\t%.g", *(x_+ j * K_nrows + hr_point[i])); */
         for(i=0; i<n_dof; i++){
             for(j=0; j<n_dof; j++){
