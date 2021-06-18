@@ -812,6 +812,19 @@ int main(int argc, char **argv){
         somefile = fopen("./GJH/kkt_print.txt", "w");
         for(k=0; k<nzK; k++){fprintf(somefile, "%d\t%d\t%.g\n", Krow[k], Kcol[k], Kij[k]);}
         fclose(somefile);
+	    
+	    
+	somefile = fopen("./GJH/result_red_hess.txt", "w");
+
+        for(i=0; i<n_dof; i++){
+            for(j=0; j<n_dof; j++){
+                fprintf(somefile, "\t%.g",
+                        (*(x_+ j * K_nrows + hr_point[i]) + *(x_+ i * K_nrows + hr_point[j])) * 0.5 );
+            }
+            fprintf(somefile, "\n");
+        }
+        fclose(somefile);
+	    
         solve_result_num = 0;
         write_sol(ter_msg, x, lambda, &Oinfo);
 
