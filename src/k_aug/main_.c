@@ -1083,7 +1083,19 @@ int main(int argc, char **argv){
     }
 
 
+	
+#ifndef PRINT_VERBOSE
+    somefile = fopen("./kaug_debug/result_red_hess.txt", "w");
+    for(i=0; i<n_dof; i++){
+        for(j=0; j<n_dof; j++){
+            fprintf(somefile, "\t%.g",
+                (*(x_+ j * K_nrows + hr_point[i]) + *(x_+ i * K_nrows + hr_point[j])) * 0.5 );
 
+        }
+        fprintf(somefile, "\n");
+    }
+    fclose(somefile);
+	
 #ifndef PRINT_VERBOSE
     somefile = fopen("./kaug_debug/result_primal_dual.txt", "w");
     for(i=0; i<K_nrows; i++){
