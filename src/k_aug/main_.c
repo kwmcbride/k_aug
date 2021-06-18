@@ -1095,6 +1095,7 @@ int main(int argc, char **argv){
         fprintf(somefile, "\n");
     }
     fclose(somefile);
+#endif
 	
 #ifndef PRINT_VERBOSE
     somefile = fopen("./kaug_debug/result_primal_dual.txt", "w");
